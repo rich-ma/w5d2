@@ -1,0 +1,27 @@
+<% if type == :new 
+  action = sub_posts_url
+  button_text = "Create Post"
+else
+  action = post_url(@post)
+  button_text = "Update Post"
+end
+%>
+
+<form class="" action="<%= action %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+  <% if type == :edit %>
+    <input type="hidden" name="_method" value="patch">
+  <% end %>
+  
+  <label for="">Title:
+  <input type="text" name="post[title]" value="<%= @post.title %>">
+</label><br>
+  <label for="">URL:
+  <input type="text" name="post[url]" value="<%= @post.url %>">
+</label><br>
+  <label for="">Content:
+  <input type="textarea" name="post[content]" value="<%= @post.content %>">
+</label><br>
+
+<input type="submit" value="<%= button_text %>">
+</form>

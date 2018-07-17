@@ -110,3 +110,462 @@ Migrating to CreatePosts (20180717181256)
   [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/session" for 127.0.0.1 at 2018-07-17 12:00:36 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"us/M2RTNo26h71lGRZ+QSOsmpeTXXnEmnQVdvLrUg85qgs6mwnisKTrGS3oHBd9J2VaATkSpqitwQkDFA1CGGg==", "user"=>{"username"=>"rich", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rich"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/subs
+Completed 302 Found in 133ms (ActiveRecord: 9.1ms)
+
+
+Started GET "/subs" for 127.0.0.1 at 2018-07-17 12:00:36 -0700
+Processing by SubsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "DGc61JmAU1kYAWGK7XmkJA"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2018-07-17 12:00:37 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "DGc61JmAU1kYAWGK7XmkJA"], ["LIMIT", 1]]
+Completed 200 OK in 336ms (Views: 334.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/session" for 127.0.0.1 at 2018-07-17 12:00:43 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"FepZ8a517O7TBiw3GZgu2iQKrwFlaPWfrxi8d905TSLFp1uOeMDjqUgvPgtbAmHbFnqKq/afLpJCX6EOZL1I9g==", "user"=>{"username"=>"rich", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rich"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/subs
+Completed 302 Found in 80ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/subs" for 127.0.0.1 at 2018-07-17 12:00:44 -0700
+Processing by SubsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "NZM7et4ILASvPWTwFeRluQ"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2018-07-17 12:00:44 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "NZM7et4ILASvPWTwFeRluQ"], ["LIMIT", 1]]
+Completed 200 OK in 30ms (Views: 28.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-07-17 12:00:54 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "NZM7et4ILASvPWTwFeRluQ"], ["LIMIT", 1]]
+Completed 200 OK in 88ms (Views: 69.6ms | ActiveRecord: 8.3ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-07-17 12:00:58 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"q9zd+IoymczunAe80rkby5OKFN9iA05JDf0h3SU6wA97kd+HXIeWi3W1FYCQI1TKofoxdfH0lUTgujyknL7F2w==", "user"=>{"username"=>"rich", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (40.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rich"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rich"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8FkYRQlW9bNPoNkPhQdbSQ"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "NZM7et4ILASvPWTwFeRluQ"], ["LIMIT", 1]]
+Completed 200 OK in 165ms (Views: 31.5ms | ActiveRecord: 44.0ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2018-07-17 12:01:02 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "NZM7et4ILASvPWTwFeRluQ"], ["LIMIT", 1]]
+Completed 200 OK in 36ms (Views: 33.8ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/session" for 127.0.0.1 at 2018-07-17 12:01:08 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"YQsjmMCMTFkUhCGrbq1yV2xmlrXpVZiW0UfjYbAkAbmxRiHnFjlDHo+tM5csNz1WXhazH3qiQ5s8AP4YCaAEbQ==", "user"=>{"username"=>"rich", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rich"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/subs
+Completed 302 Found in 81ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/subs" for 127.0.0.1 at 2018-07-17 12:01:08 -0700
+Processing by SubsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "9QpdlxaECg0so6zCW12AxQ"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2018-07-17 12:01:08 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "9QpdlxaECg0so6zCW12AxQ"], ["LIMIT", 1]]
+Completed 200 OK in 32ms (Views: 30.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2018-07-17 12:01:27 -0700
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (7.6ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "9QpdlxaECg0so6zCW12AxQ"], ["LIMIT", 1]]
+Completed 200 OK in 503ms (Views: 472.3ms | ActiveRecord: 8.9ms)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/session" for 127.0.0.1 at 2018-07-17 12:01:55 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"XRMmRf3QeOzSiIl58mgaRT/r085Tt1LxRitZeKqhk1+NXiQ6K2V3q0mhm0Ww8lVEDZv2ZMBAifyrbEQBEyWWiw==", "user"=>{"username"=>"rich", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rich"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "9QpdlxaECg0so6zCW12AxQ"], ["LIMIT", 1]]
+Completed 200 OK in 183ms (Views: 80.3ms | ActiveRecord: 15.0ms)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rich"], ["LIMIT", 1]]
+Started POST "/session" for 127.0.0.1 at 2018-07-17 12:03:22 -0700
+Started POST "/session" for 127.0.0.1 at 2018-07-17 12:03:32 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"qhLwupnSWHRnVoPAt+TxpKlFdY5UpUBmnFlGVE4OQxR6X/LFT2dXM/x/kfz1fr6lmzVQJMdSm2txHlst94pGwA==", "user"=>{"username"=>"rich", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rich"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/subs
+Completed 302 Found in 57719ms (ActiveRecord: 0.4ms)
+
+
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"qhLwupnSWHRnVoPAt+TxpKlFdY5UpUBmnFlGVE4OQxR6X/LFT2dXM/x/kfz1fr6lmzVQJMdSm2txHlst94pGwA==", "user"=>{"username"=>"rich", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rich"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/subs
+Completed 302 Found in 35009ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/subs" for 127.0.0.1 at 2018-07-17 12:05:05 -0700
+Processing by SubsController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "yoP1yaeJkgFNWuzxkTyeMg"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2018-07-17 12:05:05 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "yoP1yaeJkgFNWuzxkTyeMg"], ["LIMIT", 1]]
+Completed 200 OK in 234ms (Views: 232.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/session" for 127.0.0.1 at 2018-07-17 12:06:10 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"evO0qT4ZJ0MSjhyC6LKQheUEmH4Jkorf8jA/aARJGxqqvrbW6KwoBImnDr6qKN+E13S91JplUdIfdyIRvc0ezg==", "user"=>{"username"=>"rich", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rich"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/subs
+Completed 302 Found in 3798ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/subs" for 127.0.0.1 at 2018-07-17 12:06:14 -0700
+Processing by SubsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "XbZvGgxSGrfgWDSKO29z5g"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2018-07-17 12:06:14 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "XbZvGgxSGrfgWDSKO29z5g"], ["LIMIT", 1]]
+Completed 200 OK in 132ms (Views: 131.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/session" for 127.0.0.1 at 2018-07-17 12:06:59 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"Rg53u7hNZyZxeIAsihK4kHbWXSz4jandNk8mJln1lJWWQ3XEbvhoYepRkhDIiPeRRKZ4hmt6ctDbCDtf4HGRQQ==", "user"=>{"username"=>"rich", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rich"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (45.9ms)
+Completed 500 Internal Server Error in 154ms (ActiveRecord: 7.9ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/sessions/new.html.erb:7:in `_app_views_sessions_new_html_erb__3564640787431878418_70182193890020'
+  app/controllers/sessions_controller.rb:15:in `create'
+
+Started POST "/__better_errors/80cdd895bdc345fd/variables" for 127.0.0.1 at 2018-07-17 12:07:00 -0700
+Started POST "/session" for 127.0.0.1 at 2018-07-17 12:07:12 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"Rg53u7hNZyZxeIAsihK4kHbWXSz4jandNk8mJln1lJWWQ3XEbvhoYepRkhDIiPeRRKZ4hmt6ctDbCDtf4HGRQQ==", "user"=>{"username"=>"rich", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rich"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.2ms)
+Completed 500 Internal Server Error in 89ms (ActiveRecord: 0.4ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/sessions/new.html.erb:7:in `_app_views_sessions_new_html_erb__3564640787431878418_70182231812320'
+  app/controllers/sessions_controller.rb:15:in `create'
+
+Started POST "/__better_errors/725e4c7a1bf98bef/variables" for 127.0.0.1 at 2018-07-17 12:07:12 -0700
+Started POST "/session" for 127.0.0.1 at 2018-07-17 12:07:36 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"Rg53u7hNZyZxeIAsihK4kHbWXSz4jandNk8mJln1lJWWQ3XEbvhoYepRkhDIiPeRRKZ4hmt6ctDbCDtf4HGRQQ==", "user"=>{"username"=>"rich", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rich"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/subs/new
+Completed 302 Found in 81ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/subs/new" for 127.0.0.1 at 2018-07-17 12:07:36 -0700
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ZI4fsanlP35aALbUj6q_lQ"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2018-07-17 12:07:36 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ZI4fsanlP35aALbUj6q_lQ"], ["LIMIT", 1]]
+Completed 200 OK in 143ms (Views: 142.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2018-07-17 12:09:21 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ZI4fsanlP35aALbUj6q_lQ"], ["LIMIT", 1]]
+Completed 200 OK in 176ms (Views: 160.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/session" for 127.0.0.1 at 2018-07-17 12:09:34 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"FCD7EsEeA7dcMYCME1Xitnz5eDUAgj54+2WTJpK1MHHEbfltF6sM8McYkrBRz623Toldn5N15XUWIo5fKzE1pQ==", "user"=>{"username"=>"rich", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rich"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "rich"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["session_token", "bVbi9rsdrEknCYfQrYvp8Q"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (36.0ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1 WHERE "users"."id" = $2[0m  [["session_token", "bVbi9rsdrEknCYfQrYvp8Q"], ["id", 1]]
+  [1m[35m (97.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/subs/new
+Completed 302 Found in 258ms (ActiveRecord: 135.3ms)
+
+
+Started GET "/subs/new" for 127.0.0.1 at 2018-07-17 12:09:34 -0700
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "bVbi9rsdrEknCYfQrYvp8Q"], ["LIMIT", 1]]
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 345ms (Views: 268.9ms | ActiveRecord: 12.8ms)
+
+
+Started DELETE "/session" for 127.0.0.1 at 2018-07-17 12:09:40 -0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"m18iZJECYd1wQDIwAcTP3ojkkozcUlJhoW+dj6JTK1lLEiAbR7dumutpIAxDXoDfupS3Jk+liWxMKID2G9cujQ=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "bVbi9rsdrEknCYfQrYvp8Q"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "rich"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["session_token", "ra5CLJa5eidVZjlIXM6yJg"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1 WHERE "users"."id" = $2[0m  [["session_token", "ra5CLJa5eidVZjlIXM6yJg"], ["id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 10ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2018-07-17 12:09:40 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Completed 200 OK in 41ms (Views: 39.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/session" for 127.0.0.1 at 2018-07-17 12:09:44 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"qlqQ7aBPKkfZu7iV6fbz/GnHomFiYCcy4L6dDmxfbdh6F5KSdvolAEKSqqmrbLz9W7eHy/GX/D8N+YB31dtoDA==", "user"=>{"username"=>"rich", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rich"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Completed 200 OK in 119ms (Views: 37.4ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/session" for 127.0.0.1 at 2018-07-17 12:09:48 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"MKxKyMOFOD0wUomwctnTgi747dLO9zY/pgqhpXY+Lsrg4Ui3FTA3eqt7m4wwQ5yDHIjIeF0A7TJLTbzcz7orHg==", "user"=>{"username"=>"rich", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rich"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "rich"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["session_token", "1CbQ3ER8WAykfeDaFHSrZA"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1 WHERE "users"."id" = $2[0m  [["session_token", "1CbQ3ER8WAykfeDaFHSrZA"], ["id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/subs/new
+Completed 302 Found in 88ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/subs/new" for 127.0.0.1 at 2018-07-17 12:09:48 -0700
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "1CbQ3ER8WAykfeDaFHSrZA"], ["LIMIT", 1]]
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 51ms (Views: 49.3ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/session" for 127.0.0.1 at 2018-07-17 12:09:50 -0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bfPyWuz5t986kJmHYCdDCeo9y1addXBV4O1AvqWAvCW9vvAlOky4mKG5i7sivQwI2E3u/A6Cq1gNql3HHAS58Q=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "1CbQ3ER8WAykfeDaFHSrZA"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "rich"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["session_token", "PmrAv8miXiOYJMLNPLXQqg"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1 WHERE "users"."id" = $2[0m  [["session_token", "PmrAv8miXiOYJMLNPLXQqg"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 11ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2018-07-17 12:09:50 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Completed 200 OK in 45ms (Views: 43.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-07-17 12:09:51 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Completed 200 OK in 55ms (Views: 53.3ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-07-17 12:09:56 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"bSxdWQGiAGFVHyLkuX5NG9Y/IfZNwxUTJcs46iUpxN69YV8m1xcPJs42MNj75AIa5E8EXN40zh7IjCWTnK3BCg==", "user"=>{"username"=>"rob", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rob"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rob"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7gQT42Mt-DwulRFd2kBWQQ"], ["LIMIT", 1]]
+  [1m[35mSQL (9.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "rob"], ["password_digest", "$2a$10$jpPqFseISIbgVQqN2IUb0eURm.d1CrL53vhtz46NTFxDAkoU8DxpW"], ["session_token", "7gQT42Mt-DwulRFd2kBWQQ"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "rob"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["session_token", "jZQbnIjrIO25Ou5BpU__QQ"], ["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1 WHERE "users"."id" = $2[0m  [["session_token", "jZQbnIjrIO25Ou5BpU__QQ"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/subs
+Completed 302 Found in 240ms (ActiveRecord: 15.7ms)
+
+
+Started GET "/subs" for 127.0.0.1 at 2018-07-17 12:09:56 -0700
+Processing by SubsController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "jZQbnIjrIO25Ou5BpU__QQ"], ["LIMIT", 1]]
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (10.1ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  Rendered subs/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 59ms (Views: 45.9ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/subs/new" for 127.0.0.1 at 2018-07-17 12:09:58 -0700
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "jZQbnIjrIO25Ou5BpU__QQ"], ["LIMIT", 1]]
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 41ms (Views: 38.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/subs" for 127.0.0.1 at 2018-07-17 12:10:06 -0700
+Processing by SubsController#create as HTML
+  Parameters: {"authenticity_token"=>"l1sx9rXQzoNsz0nmzjMwLOfMJqPkMySsnEfu9DJDW65HFjOJY2XBxPfmW9qMqX8t1bwDCXfE/6FxAPONi8deeg==", "sub"=>{"title"=>"Doggos", "description"=>"borkbork"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "jZQbnIjrIO25Ou5BpU__QQ"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (10.8ms)[0m  [1m[32mINSERT INTO "subs" ("title", "description", "moderator_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Doggos"], ["description", "borkbork"], ["moderator_id", 2]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/subs/1
+Completed 302 Found in 97ms (ActiveRecord: 12.2ms)
+
+
+Started GET "/subs/1" for 127.0.0.1 at 2018-07-17 12:10:06 -0700
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "jZQbnIjrIO25Ou5BpU__QQ"], ["LIMIT", 1]]
+  [1m[36mSub Load (0.6ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering subs/show.html.erb within layouts/application
+  Rendered subs/show.html.erb within layouts/application (10.8ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.9ms)
+
+
+
+NoMethodError - undefined method `posts' for #<Sub:0x00007fa9268003a0>:
+  app/views/subs/show.html.erb:3:in `_app_views_subs_show_html_erb__165656577996113943_70182219247320'
+  app/controllers/subs_controller.rb:48:in `show'
+
+Started POST "/__better_errors/b7c6c1a3af127009/variables" for 127.0.0.1 at 2018-07-17 12:10:06 -0700
+Started GET "/subs/1" for 127.0.0.1 at 2018-07-17 12:12:46 -0700
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "jZQbnIjrIO25Ou5BpU__QQ"], ["LIMIT", 1]]
+  [1m[36mSub Load (0.7ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (23.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."sub_id" = $1[0m  [["sub_id", 1]]
+  Rendered subs/show.html.erb within layouts/application (74.9ms)
+Completed 200 OK in 265ms (Views: 209.1ms | ActiveRecord: 31.5ms)
+
+
+Started GET "/subs/1" for 127.0.0.1 at 2018-07-17 12:13:02 -0700
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "jZQbnIjrIO25Ou5BpU__QQ"], ["LIMIT", 1]]
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."sub_id" = $1[0m  [["sub_id", 1]]
+  Rendered subs/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 40ms (Views: 35.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/subs/1/edit" for 127.0.0.1 at 2018-07-17 12:13:04 -0700
+Processing by SubsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "jZQbnIjrIO25Ou5BpU__QQ"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 232ms (ActiveRecord: 0.3ms)
+
+
+
+NameError - undefined local variable or method `sub' for #<SubsController:0x00007fa924593178>:
+  app/controllers/subs_controller.rb:27:in `edit'
+
+Started POST "/__better_errors/b7344784694eeb91/variables" for 127.0.0.1 at 2018-07-17 12:13:05 -0700
+Started GET "/subs/1" for 127.0.0.1 at 2018-07-17 12:13:08 -0700
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "jZQbnIjrIO25Ou5BpU__QQ"], ["LIMIT", 1]]
+  [1m[36mSub Load (0.7ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."sub_id" = $1[0m  [["sub_id", 1]]
+  Rendered subs/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 39ms (Views: 34.7ms | ActiveRecord: 1.4ms)
+
+
