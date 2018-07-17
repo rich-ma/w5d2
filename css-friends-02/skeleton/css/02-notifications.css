@@ -1,1 +1,28 @@
 /* PHASE 2: Notifications */
+.badge {
+  display: inline-flex;
+  margin-left: 5px;
+  border-radius: 50%;
+  background-color: black;
+  padding: 4.5px;
+  width: 10px;
+  height: 10px;
+  font-size: 13px;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown {
+  position: relative;
+  
+}
+
+.dropdown-internal {
+  display: none;
+}
+
+.dropdown:hover ul {
+  color: black;
+  display: block;
+  position: absolute;
+}
