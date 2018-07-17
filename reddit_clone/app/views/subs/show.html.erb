@@ -1,9 +1,12 @@
 <h2><%=@sub.title%></h2>
 <ul>
   <%@sub.posts.each do |post|%>
-    <li><a href="<%=post_url(post)%>"><%=post.title%></a></li>
+    <li><a href="<%=sub_post_url(post)%>"><%=post.title%></a></li>
   <%end%>
 </ul>
+
+<%@post = Post.new%>
+<%=render "/posts/form", type: :sub_new, post: @post, sub: @sub%>
 
 <%if current_user.id == @sub.moderator_id%>
   <h3>Hi, moderator <%=current_user.username%></h3>

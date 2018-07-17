@@ -1,8 +1,11 @@
 <% if type == :new 
   action = sub_posts_url
   button_text = "Create Post"
+elsif type == :sub_new
+  action = sub_posts_url(@sub)
+  button_text = "Create Post"
 else
-  action = post_url(@post)
+  action = sub_post_url(@post)
   button_text = "Update Post"
 end
 %>
@@ -12,6 +15,7 @@ end
   <% if type == :edit %>
     <input type="hidden" name="_method" value="patch">
   <% end %>
+  <!-- <input type="hidden" name="post[sub_id]" value="<%#=params[:sub_id]%>"> -->
   
   <label for="">Title:
   <input type="text" name="post[title]" value="<%= @post.title %>">
