@@ -1,7 +1,7 @@
-<h2><%=@sub.title%></h2>
+<h2>r/<%=@sub.title%></h2>
 <ul>
-  <%@sub.posts.each do |post|%>
-    <li><a href="<%=sub_post_url(post)%>"><%=post.title%></a></li>
+  <%@sub.posts.each do |post1|%>
+    <li><a href="<%=post_url(post1.id)%>"><%=post1.title%></a></li>
   <%end%>
 </ul>
 
@@ -11,4 +11,6 @@
 <%if current_user.id == @sub.moderator_id%>
   <h3>Hi, moderator <%=current_user.username%></h3>
   <a href="<%=edit_sub_url%>">Edit This Sub</a>
-<%end%>
+<%end%><br>
+
+<a href="<%=subs_url%>">See All Subreddits</a>

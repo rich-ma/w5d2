@@ -24,7 +24,7 @@ class SubsController < ApplicationController
 
   def edit
     # SubsController.require_moderator
-    @sub = sub.find(params[:id])
+    @sub = Sub.find(params[:id])
     render :edit
   end
 

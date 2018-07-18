@@ -3,9 +3,13 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   
   resources :subs do
-    resources :posts, only: [:new, :create, :show, :edit, :update]
+    resources :posts, only: [:new, :create, :edit, :update]
   end
   
-  resources :posts, only: [:destroy]
+  resources :posts do
+    resources :comments, only: [:new]
+  end
+  
+  resources :comments, only: [:create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

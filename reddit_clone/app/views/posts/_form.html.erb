@@ -26,6 +26,14 @@ end
   <label for="">Content:
   <input type="textarea" name="post[content]" value="<%= @post.content %>">
 </label><br>
+<label class="sub-radios">Choose SubReddits:<br>
+  <%Sub.all.each do |subr|%>
+  <label for="sub"><%=subr.title%>
+    <input id="sub" type="checkbox" name="post[sub_ids][]" value="<%= subr.id %>"></label>
+    <br>
+  <%end%>
+</label>
+<br>
 
 <input type="submit" value="<%= button_text %>">
 </form>
